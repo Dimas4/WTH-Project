@@ -17,7 +17,7 @@ def telegram(request):
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
         if data.get("message"):
-            push_database(data)
+            push_database(data["message"])
             messageHandler.create_answer(
                 data["message"], config['app']['tg']['token']
             )

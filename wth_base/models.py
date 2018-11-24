@@ -10,7 +10,7 @@ class User(models.Model):
 
 
 class Location(models.Model):
-    user_telegram_id = models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE) 
 
     stop_name = models.CharField(max_length=100)
 
