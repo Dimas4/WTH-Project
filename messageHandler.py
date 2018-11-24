@@ -13,8 +13,7 @@ def load_modules():
 
 
 def get_answer(user_id, action, content=None):
-    print(action, content)
-    message = "Прости, не понимаю тебя. Напиши 'помощь', чтобы узнать мои команды"
+    message = "Прости, не понимаю тебя. Напиши '/help', чтобы узнать мои команды"
     for c in command_list:
         for k in c.keys:
             if action == k:

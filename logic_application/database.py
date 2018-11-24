@@ -6,7 +6,6 @@ def push_database(data: dict):
     try:
         User.objects.create(user_telegram_id=data['chat']['id'])
     except Exception as _er:
-        print(_er)
         pass
 
 
@@ -16,18 +15,20 @@ def gen_answer(use, *args, **kwargs):
 
 
 def add(msg, user_id):
+    msg = msg if msg != '/add' else None
     success = 'успешно добавлено'
     error = 'ошибка'
-    if msg is None:
+    if not msg:
         return error
     Location.objects.create(user=User.objects.get(user_telegram_id=user_id), stop_name=msg)
     return success
 
 
 def view(msg, *args, **kwargs):
+    msg = msg if msg != '/view' else None
     success = ['Есть', 'Нет']
     error = 'ошибка'
-    if msg is None:
+    if not msg:
         return error
     loc = Location.objects.filter(stop_name=msg, visible=True)
     if loc:
@@ -37,9 +38,10 @@ def view(msg, *args, **kwargs):
 
 
 def report(msg, *args, **kwargs):
+    msg = msg if msg != '/report' else None
     success = 'Соощение добавлено'
     error = ['Что-то пошло не так:( Проверьте сообщение, которое вы ввели', 'Такой отметке пока нет']
-    if msg is None:
+    if not msg:
         return error[0]
     locs = Location.objects.filter(stop_name=msg)
     for loc in locs:
