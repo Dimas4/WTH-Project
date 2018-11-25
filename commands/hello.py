@@ -3,7 +3,7 @@ import command_system
 
 def hello(*args, **kwargs):
     message = "Привет мир!"
-    return (message, [], [], []), None, None
+    return message, [], [], []
 
 
 hello_command = command_system.Command()
