@@ -46,7 +46,9 @@ def view(msg, *args, **kwargs):
     if not msg or not Stop.objects.filter(name=msg):
         return error
 
-    dist, name = bfs(msg)
+    dist, name, flag = bfs(msg)
+    if not flag:
+        retrun "Чисто. Контроллеров нет. Выдвигаемся"
     return f"Ближайштй контролер на остановке {name}(в {dist} остановках от вас)"
 
 
