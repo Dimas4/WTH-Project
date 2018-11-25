@@ -7,7 +7,7 @@ def bfs(stop):  # обход в ширину
     used = set()
     next_stops = []
 
-    next_stops.extend(Stop.objects.filter(name=stop))
+    next_stops.extend(map(lambda x: x.stop_id, Stop.objects.filter(name=stop)))
 
     for i in next_stops:
         used.add(i.stop_id)
