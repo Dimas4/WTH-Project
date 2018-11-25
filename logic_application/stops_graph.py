@@ -23,13 +23,15 @@ def bfs(stop):  # обход в ширину
             stop = Stop.objects.get(stop_id=stop_id)
 
             if Location.objects.filter(visible=True, stop_name=stop.name, created_on__gte=timezone.now() - datetime.timedelta(minutes=3)):
-                return dist, stop.name
+                return dist, stop.name, True
 
             linked = filter(lambda x: x not in used, map(int, stop.linked_stops.split(',')))
             temp.extend(linked)
 
             for i in temp:
                 used.add(i)
+        if not temp:
+            return -1, '', False
 
         next_stops = temp
         dist += 1
