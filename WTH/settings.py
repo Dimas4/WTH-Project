@@ -13,7 +13,7 @@ SECRET_KEY = '7^9*m^aho2x9*cgd(2r-u-f7moikatyhml9gdn4=+($m#615q('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['20a520b6.ngrok.io', '127.0.0.1']
+ALLOWED_HOSTS = ['174.138.10.233', '20a520b6.ngrok.io', '127.0.0.1']
 
 
 # Application definition
