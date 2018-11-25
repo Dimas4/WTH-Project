@@ -40,8 +40,8 @@ def create_answer(data, token, *args, **kwargs):
     action, text = _action_detect(action, action)
 
     args = get_answer(user_id, action, text)
-    tg.send_message(user_id, 'Idite na*yi, oplachivaite proezd.', [], [], [])
+    tg.send_message(user_id, 'Борзый? Оплачивай проезд', [], [], [])
     time.sleep(1)
-    tg.send_message(user_id, 'Eto shutka. Sore za mat', [], [], [])
+    tg.send_message(user_id, 'Это шутка соре за мат', [], [], [])
     time.sleep(1)
     tg.send_message(user_id, args[0], args[1], args[2], args[3])
