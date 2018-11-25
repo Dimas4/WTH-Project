@@ -11,5 +11,5 @@ def report(*args, **kwargs):
 report_command = command_system.Command()
 
 report_command.keys = ["/report"]
-report_command.description = ""
+report_command.description = "Указать отметку о том, что тут нет надзора. Пр. /report <Прыпынак>"
 report_command.process = report
