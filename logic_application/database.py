@@ -41,7 +41,7 @@ def add(msg, user_id):
 
 def view(msg, *args, **kwargs):
     msg = msg if msg != '/view' else None
-    success = ['Есть', 'Нет']
+    success = ['Есть контролеров', 'Нет контролеров']
     error = 'ошибка'
     if not msg or not Stop.objects.filter(name=msg):
         return error
