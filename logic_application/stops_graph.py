@@ -15,7 +15,9 @@ def bfs(stop):  # обход в ширину
     while True:
         temp = []
 
-        for stop in next_stops:
+        for stop_id in next_stops:
+            stop = Location.objects.get(id=stop_id)
+
             if Location.objects.filter(visible=True, stop_name=stop.name):
                 return dist, stop.name
 
