@@ -10,7 +10,7 @@ class User(models.Model):
 
 
 class Location(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE) 
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     stop_name = models.CharField(max_length=100)
 
@@ -20,3 +20,13 @@ class Location(models.Model):
     def __str__(self):
         return f"<Location: {self.user_telegram_id}, stop name: {self.stop_name}, " \
                f"visible: {self.visible}, created on: {self.created_on}>"
+
+
+class Stop(models.Model):
+    stop_id = models.IntegerField(unique=True)
+    name = models.CharField(max_length=100)
+
+    linked_stops = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"<Stop: {self.stop_id}, Name: {self.name}, Linked Stops: {self.linked_stops}>"

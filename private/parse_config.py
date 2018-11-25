@@ -33,7 +33,7 @@ def _parse(dir: str, name: str, load) -> dict:
     :param dir: <str> directory name of the file
     :param name: <str> filename
     :param load: load func to read current file
-    :return: <dict> file conten
+    :return: <dict> file content
     """
     path = os.path.join(dir, name) if dir else name
     with open(path) as f:
