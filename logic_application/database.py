@@ -48,7 +48,7 @@ def view(msg, *args, **kwargs):
 
     dist, name, flag = bfs(msg)
     if not flag:
-        retrun "Чисто. Контроллеров нет. Выдвигаемся"
+        retrun success[1]
     return f"Ближайштй контролер на остановке {name}(в {dist} остановках от вас)"
 
 
