@@ -11,5 +11,5 @@ def add(*args, **kwargs):
 add_command = command_system.Command()
 
 add_command.keys = ["/add"]
-add_command.description = ""
+add_command.description = "Добавить локацию надзирающего. Пр: /add <Прыпынак>"
 add_command.process = add
