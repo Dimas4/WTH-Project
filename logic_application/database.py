@@ -1,5 +1,7 @@
 import csv
+import datetime
 from WTH.wsgi import application
+from django.utils import timezone
 from wth_base.models import User, Location, Stop
 from logic_application.stops_graph import bfs
 
@@ -54,7 +56,7 @@ def report(msg, *args, **kwargs):
     error = ['Что-то пошло не так:( Проверьте сообщение, которое вы ввели', 'Такой отметке пока нет']
     if not msg or not Stop.objects.filter(name=msg):
         return error[0]
-    locs = Location.objects.filter(stop_name=msg)
+    locs = Location.objects.filter(stop_name=msg, created_on__gte=timezone.now() - datetime.timedalta(minutes=3))
     for loc in locs:
         loc.user.fake_count += 1
         loc.user.save()
