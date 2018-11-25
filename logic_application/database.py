@@ -14,8 +14,14 @@ def push_database(data: dict):
 
 
 def gen_answer(use, *args, **kwargs):
+    global stops_loaded
     if not stops_loaded:
-        load_stops('0list.csv')
+        try:
+            load_stops('0list.csv')
+            stops_loaded = True
+        except:
+            pass
+
 
     func = _use[use]
     return func(*args, **kwargs)
