@@ -10,6 +10,6 @@ def info(*args, **kwargs):
 
 info_command = command_system.Command()
 
-info_command.keys = ["/help", "помощь", "помоги", "help"]
+info_command.keys = ["/help", "помощь", "помоги", "help", "/start"]
 info_command.description = "Покажу список команд"
 info_command.process = info

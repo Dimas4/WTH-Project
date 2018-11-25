@@ -1,7 +1,7 @@
 import csv
 from WTH.wsgi import application
 from wth_base.models import User, Location, Stop
-
+from logic_application.stops_graph import bfs
 
 stops_loaded = False    # цэ костыль оставьте его в покое
 
@@ -21,7 +21,6 @@ def gen_answer(use, *args, **kwargs):
             stops_loaded = True
         except:
             pass
-
 
     func = _use[use]
     return func(*args, **kwargs)
@@ -44,11 +43,9 @@ def view(msg, *args, **kwargs):
     error = 'ошибка'
     if not msg or not Stop.objects.filter(name=msg):
         return error
-    loc = Location.objects.filter(stop_name=msg, visible=True)
-    if loc:
-        return success[0]
-    else:
-        return success[1]
+
+    dist, name = bfs(msg)
+    return f"Ближайштй контролер на остановке {name}(в {dist} остановках от вас)"
 
 
 def report(msg, *args, **kwargs):
