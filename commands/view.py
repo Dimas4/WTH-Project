@@ -11,5 +11,5 @@ def view(*args, **kwargs):
 view_command = command_system.Command()
 
 view_command.keys = ["/view"]
-view_command.description = ""
+view_command.description = "Проверить локацию на проверяющих. Пр. /view <Прыпынак>"
 view_command.process = view
